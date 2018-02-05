@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'wish_list_app/css/style.css' %}"/>
+    <title>Users who added the same item</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="row">
+            <div class="column height" style="border: none">
+                <h1>{{this_wish.wish}}</h1>
+                <p>Users who added this product/item under their wish list:</p>
+                {% for users in this_wish.users_wishing.all %}
+                    <p><span class="user">{{users.name}}</span> </p>
+                {% endfor %}
+                {% for this_user in this_wish.wish_list.all %}
+                <p><span class="user">{{users.name}}</span> </p>
+                {% endfor %}
+            </div>
+            <div class="column height"style="border: none" >
+                <br/>
+                <a href="/" ><button class="btn">Home</button></a>&nbsp;&nbsp;
+                <a href="/logout" ><button class="btn">Logout</button></a>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

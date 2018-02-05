@@ -1,0 +1,140 @@
+.error {
+    padding: 10px;
+    background-color: darkred;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width:500px;
+    font-weight:bold;
+    list-style-type: square; 
+}
+
+.success {
+    padding: 10px;
+    background-color: darkgreen;
+    color: white;
+    width:300px;
+    font-weight:bold;
+    font-size:20px;
+}  
+
+/* Create two equal columns that floats next to each other */
+#wrapper{
+    margin:auto 0px;
+    justify-content: center;
+    width:1100px;
+    height:100%;
+    padding:40px;
+
+} 
+#wrapper2{
+    margin:auto 0px;
+    justify-content: center;
+    width:1100px;
+    height:100%;
+    padding:20px 40px;
+
+} 
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    
+}
+.column {
+    float:left;
+    padding: 10px;
+    background-color:rgba(44, 79, 145, 0.363);
+    padding: 45px;
+    border-top: solid black .5px;
+    border-bottom: solid black .5px;
+    border-left: solid black .5px;
+}
+/* Clear floats after the columns */
+.cntr{
+    text-align:center;
+}
+.wide{
+    width:1000px;
+    border:solid black .5px;
+    height:100%;
+    min-height: 400px;
+    overflow: scroll;
+}
+.row:after {
+
+    content: "";
+    display: table;
+    clear: both;
+}
+
+input{
+    height:30px;
+    width: 220px;
+}
+th{
+    text-align: left;
+}
+.submit{
+    background-color: darkblue;
+    color:white;
+    font-size: 17px;
+    font-weight:bold;
+    height:30px;
+    border:solid black 1px;
+}
+legend{
+    font-size: 24px;
+    font-weight:bold;
+}
+li{
+    margin:0px;
+}
+.border{
+    border:solid darkblue .025px;
+    padding:5px;
+}
+.right{
+    float: right;
+}
+.user{
+    font-size:18px;
+    font-weight:bold;
+    color:darkred;
+}
+
+.quote{
+    font-size:18px;
+}
+
+.height{
+    height:520px;
+    width:40%;
+}
+
+button{
+    background-color:rgb(83, 77, 99);
+    border:2px solid rgb(35, 10, 97);
+    text-align: center;
+    color:white;
+    height:30px;
+    width:140px;
+    border-radius:5px;
+    font-size:11px;
+   
+}
+.btn{
+    background-color: darkblue;
+    font-size:14px;
+    font-weight: bold;
+}
+
+.middle-align{
+    width: 100px; 
+    margin: auto;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+  }

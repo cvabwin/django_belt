@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'wish_list_app/css/style.css' %}"/>
+    <title>Add A New User</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="row">
+
+            <div class="column height" style="border: none">
+                <h1>Create a New Wish</h1>
+                <form action="/create_wish" method="post">
+                    {% csrf_token %}
+                    <p>Item/Product: </p> <input type="text" name="wish_item" placeholder="Add new wish item">
+                    <br/><br/>
+                    <input type="submit" value="Add"> 
+                </form>
+
+            </div>
+            <div class="column height"style="border: none" >
+                <br/>
+                <a href="/logout" ><button class="btn">Logout</button></a>&nbsp;
+                <a href="/" ><button class="btn">Home</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

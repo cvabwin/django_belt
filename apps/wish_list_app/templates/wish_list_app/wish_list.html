@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'wish_list_app/css/style.css' %}"/>
+    <title>Wish List</title>
+</head>
+<body>
+    <div id="wrapper2">
+        <h1>Hello {{request.session.name}}!</h1>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+
+            {% endfor %}
+        </ul>
+        {% endif %}
+ 
+        <div class="row">
+            <div class="column wide">
+                <fieldset>
+                    <legend>Your Wish List</legend>
+                        <table style="width:800px">
+                            <tr>
+                                <th>Item</th>
+                                <th>Added by</th> 
+                                <th>Date Added</th>
+                                <th>  Actions</th>
+                            </tr>   
+                            {% for wish in this_user.wishes.all %} 
+                            <tr>
+                                <td><a href="/display_item/{{wish.id}}">{{wish.wish}}</a></td>
+                                <td>{{wish.posted_by.name}}</td>
+                                <td>{{wish.created_at}}</td>
+                                <td><a href="/delete_wish/{{wish.id}}"><button >Delete</button></a></td>
+                            </tr>
+                            {% endfor %}
+                            {% for wish in this_user.wish_list.all %} 
+                            <tr>
+                                <td><a href="/display_item/{{wish.id}}">{{wish.wish}}</a></td>
+                                <td>{{wish.posted_by.name}}</td>
+                                <td>{{wish.created_at}}</td>
+                                <td><a href="/remove_wish/{{wish.id}}"><button >Remove from Wishlist</button></a></td>
+                            </tr>
+                            {% endfor %}
+
+                    </table>
+                </fieldset>
+            </div>
+            <div class="column wide">
+                <fieldset>
+                    <legend>Others Wish List</legend>
+                        <table style="width:800px">
+                            <tr>
+                                <th>Item</th>
+                                <th>Added by</th> 
+                                <th>Date Added</th>
+                                <th>  Actions</th>
+                            </tr>   
+                            {% for wish in wishes %} 
+                            <tr>
+                                <td><a href="/display_item/{{wish.id}}">{{wish.wish}}</a></td>
+                                <td>{{wish.posted_by.name}}</td>
+                                <td>{{wish.created_at}}</td>
+                                <td><a href="/add_wish/{{wish.id}}"><button >Add to my Wishlist</button></a></td>
+                            </tr>
+                            {% endfor %}
+
+                        </table>
+                </fieldset>
+            </div>
+        </div><br/><br/>
+        <a href="/new"><button class="btn">Add a Wish Item</button></a> 
+        <a href="/logout" ><button class="btn">Logout</button></a>
+    </div>
+</body>
+</html>
